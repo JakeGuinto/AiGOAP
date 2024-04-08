@@ -36,6 +36,7 @@ public abstract class GAction : MonoBehaviour
             {
                 preconditions.Add(w.key, w.value);
             }
+
         if (afterEffects != null)
             foreach (WorldState w in afterEffects)
             {
@@ -43,12 +44,12 @@ public abstract class GAction : MonoBehaviour
             }
     }
 
-    public bool isAchievable()
+    public bool IsAchievable()
     {
         return true;
     }
 
-    public bool isAchievableGiven(Dictionary<string, int> conditions)
+    public bool IsAchievableGiven(Dictionary<string, int> conditions)
     {
         foreach (KeyValuePair<string, int> p in preConditions)
         {
