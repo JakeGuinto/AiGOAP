@@ -1,5 +1,5 @@
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -42,6 +42,7 @@ public abstract class GAction : MonoBehaviour
             {
                 effects.Add(w.key, w.value);
             }
+            
     }
 
     public bool IsAchievable()
@@ -51,7 +52,7 @@ public abstract class GAction : MonoBehaviour
 
     public bool IsAchievableGiven(Dictionary<string, int> conditions)
     {
-        foreach (KeyValuePair<string, int> p in preConditions)
+        foreach (KeyValuePair<string, int> p in preconditions)
         {
             if (!conditions.ContainsKey(p.Key))
                 return false;
@@ -59,6 +60,6 @@ public abstract class GAction : MonoBehaviour
         return true;
     }
 
-    public abstract bool PrePrefab();
-    public abstract bool PostPreform();
+    public abstract bool PrePerform();
+    public abstract bool PostPerform();
 }
